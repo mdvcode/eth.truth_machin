@@ -43,10 +43,6 @@ import material design
                       Login with MetaMask
                 </button>
 
-                <button id='sendButton' onclick="" class="mx-auto rounded-md p-2 bg-purple-500 text-white">
-                      Send transaction
-                </button>
-
                 <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
                 <form class="select2-selection--multiple" method="POST">
                     {% csrf_token %}
@@ -54,10 +50,6 @@ import material design
                     <div class="col-md-5">
                         <label style="padding: 0; margin: 0">User wallet address</label>
                     <input class="form_input" id="user_wallet_address" type="text" name="user_wallet_address">
-                        </div>
-                    <div class="col-md-5">
-                        <label style="padding: 0; margin: 0">Private key</label>
-                    <input class="form_input" id="private_key" type="text" name="private_key">
                         </div>
                     <div class="col-md-2">
                     <button style="margin-top: 17px" type="submit" class="btn btn-outline-primary">Key connection</button>
@@ -71,7 +63,6 @@ import material design
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">User wallet adress</th>
-                  <th scope="col">Private key</th>
                   <th scope="col">Balance</th>
                   <th scope="col">Count transaction</th>
                   <th scope="col">Active</th>
@@ -87,7 +78,6 @@ import material design
                 <tr>
                   <th scope="row">{{connection.id}}</th>
                   <td>{{connection.user_wallet_address}}</td>
-                  <td>{{connection.private_key}}</td>
                   <td>{{connection.balance}}</td>
                   <td>{{connection.count_trans}}</td>
                   <td>{{connection.active}}</td>
@@ -105,25 +95,8 @@ import material design
 
 </div>
 <script>
-    // const Web3 = require("web3")
-    //     const web3 = new Web3("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90")
-    //     let params = [{
-    //     'from': "0x33a4Ab8654aCa33161a796fCd1b5AaA6ae35bA92",
-    //     'to': "0xc562da0D84d4258f4b5A5C4183296B962F4E8380",
-    //     'gas': Number(21000).toString(16),
-    //     'value': Number(0.0001).toString(16),
-    //     'gasPrice': web3.utils.toWei('21', 'gwei')
-    //     }]
-    //     const accounts = window.ethereum.request({ method: 'eth_sendTransaction', params })
-    //     .catch((e) => {
-    //       console.error(e.message)
-    //
-    //     })
-    //     console.log("end")
-
 window.userWalletAddress = null
     const loginButton = document.getElementById('loginButton')
-    const sendButton = document.getElementById('sendButton')
     const userWallet = document.getElementById('user_wallet_address')
 
     function toggleButton() {
@@ -135,25 +108,6 @@ window.userWalletAddress = null
       }
 
       loginButton.addEventListener('click', loginWithMetaMask)
-      sendButton.addEventListener('click', sendTransactionMetamask)
-    }
-    async function sendTransactionMetamask(){
-    console.log("start")
-        const Web3 = require("web3")
-        const web3 = new Web3("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90")
-        let params = [{
-        'from': "0x33a4Ab8654aCa33161a796fCd1b5AaA6ae35bA92",
-        'to': "0xc562da0D84d4258f4b5A5C4183296B962F4E8380",
-        'gas': Number(21000).toString(16),
-        'value': Number(0.0001).toString(16),
-        'gasPrice': web3.utils.toWei('21', 'gwei')
-        }]
-        const accounts = await window.ethereum.request({ method: 'eth_sendTransaction', params })
-        .catch((e) => {
-          console.error(e.message)
-
-        })
-        console.log("end")
     }
 
     async function loginWithMetaMask() {
@@ -172,9 +126,6 @@ console.log(window.ethereum)
       setTimeout(() => {
         loginButton.addEventListener('click', signOutOfMetaMask)
       }, 200)
-        setTimeout(() => {
-        sendButton.addEventListener('click', signOutOfMetaMask)
-      }, 200)
     }
 
     function signOutOfMetaMask() {
@@ -185,9 +136,6 @@ console.log(window.ethereum)
       loginButton.removeEventListener('click', signOutOfMetaMask)
       setTimeout(() => {
         loginButton.addEventListener('click', loginWithMetaMask)
-      }, 200)
-        setTimeout(() => {
-        sendButton.addEventListener('click', loginWithMetaMask)
       }, 200)
     }
 

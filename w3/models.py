@@ -7,7 +7,6 @@ class AccountMetamask(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     active = models.BooleanField(default=True)
     user_wallet_address = models.CharField(max_length=255)
-    private_key = models.CharField(max_length=255)
     balance = models.FloatField(default=0)
     count_trans = models.IntegerField(default=0)
 
