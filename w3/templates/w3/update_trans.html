@@ -34,30 +34,84 @@ import material design
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
     integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-<div class="col-md-12">
+<div class="container">
+    <div class="row">
+
+<div class="col-md-6">
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row contact_row">
 								<div class="col-lg-12 contact_col">
                                     <label style="color: #2B333F">To account</label>
-                                    {{form.to_account|add_class:'form_input'}}
+                                    <input id="to_account" class="form_input" type="text" name="to_account" value="{{ form.to_account.value }}">
 								</div>
     <div class="col-lg-12 contact_col">
                                     <label style="color: #2B333F">Gas</label>
-                                    {{form.gas|add_class:'form_input '}}
+                                    <input id="gas" class="form_input" type="text" name="gas" value="{{ form.gas.value }}">
 								</div>
     <div class="col-lg-12 contact_col">
                                     <label style="color: #2B333F">Value</label>
-                                    {{form.value|add_class:'form_input '}}
+                                    <input id="value" class="form_input" type="text" name="value" value="{{ form.value.value }}">
 								</div>
     <div class="col-lg-12 contact_col">
                                     <label style="color: #2B333F">GasPrice</label>
-                                    {{form.gas_price|add_class:'form_input '}}
+                                    <input id="gas_price" class="form_input" type="text" name="gas_price" value="{{ form.gas_price.value }}">
 								</div>
                     <button type="submit" class="btn btn-outline-primary">Update</button>
 </div>
                 </form>
             </div>
+        <div class="col-md-6">
+            <h4>Send Transaction</h4>
+            <hr>
+            <h5>Step 1: Login Metamask</h5>
+            <button class="enableEthereumButton btn">Login</button>
+            <br>
+            <h5>Step 2: Send transaction metamask</h5>
+            <button class="sendEthButton btn">Send</button>
+        </div>
+</div>
+    </div>
 
+<script>
+    var value = {{value}}
+    var gasprice = {{gasprice}}
+    var toaccount = document.getElementById('to_account').value
+    var gas = {{gas}}
+    const ethereumButton = document.querySelector('.enableEthereumButton');
+const sendEthButton = document.querySelector('.sendEthButton');
+
+let accounts = [];
+
+//Sending Ethereum to an address
+sendEthButton.addEventListener('click', () => {
+  ethereum
+    .request({
+      method: 'eth_sendTransaction',
+      params: [
+        {
+          from: accounts[0],
+          to: toaccount,
+          value: "0x" + Number(value).toString(16),
+          gasPrice: "0x" + Number(gasprice).toString(16),
+          gas: Number(gas).toString(16),
+        },
+      ],
+    })
+    .then((txHash) => {
+        console.log(txHash);
+        console.log('result');
+    })
+    .catch((error) => console.error);
+});
+
+ethereumButton.addEventListener('click', () => {
+  getAccount();
+});
+
+async function getAccount() {
+  accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+}
+</script>
 
 {%endblock%}

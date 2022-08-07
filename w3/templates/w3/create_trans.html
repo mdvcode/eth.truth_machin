@@ -114,51 +114,8 @@ import material design
                     </div>
                     </div>
             </form>
-
         </div>
     </div>
 </div>
-<button class="enableEthereumButton btn">Enable Ethereum</button>
-<button class="sendEthButton btn">Send Eth</button>
-
-
-<script>
-    var test_value = {{test_value}}
-    var test_gasprice = {{test_gasprice}}
-    var test_toaccount = {{test_toaccount}}
-    var test_gas = {{test_gas}}
-
-    const ethereumButton = document.querySelector('.enableEthereumButton');
-const sendEthButton = document.querySelector('.sendEthButton');
-
-let accounts = [];
-
-//Sending Ethereum to an address
-sendEthButton.addEventListener('click', () => {
-  ethereum
-    .request({
-      method: 'eth_sendTransaction',
-      params: [
-        {
-          from: accounts[0],
-          to: Number(test_toaccount).toString(16),
-          value: "0x" + Number(test_value).toString(16),
-          gasPrice: "0x" + Number(test_gasprice).toString(16),
-          gas: Number(test_gas).toString(16),
-        },
-      ],
-    })
-    .then((txHash) => console.log(txHash))
-    .catch((error) => console.error);
-});
-
-ethereumButton.addEventListener('click', () => {
-  getAccount();
-});
-
-async function getAccount() {
-  accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-}
-</script>
 
 {%endblock%}

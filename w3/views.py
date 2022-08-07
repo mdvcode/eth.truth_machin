@@ -52,6 +52,7 @@ def create_trans(request, id_acc):
             inst = form.save(commit=False)
             inst.account = AccountMetamask.objects.get(id=id_acc)
             inst.save()
+            print(inst.id)
             w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
             # test_toaccount = w3.toChecksumAddress(inst.to_account)
 
@@ -68,7 +69,7 @@ def create_trans(request, id_acc):
             # tx_hash = w3.eth.sendRawTransaction(Web3.toHex(signed_tx.rawTransaction))
             # Transaction.objects.filter(id=inst.id).update(res_hash=str(tx_hash.hex()))
 
-            return redirect('w3:update_trans', id_acc=id_acc)
+            return redirect('w3:update_trans', id_transaction=inst.id)
         form = CreateTransForm()
     return render(request, 'w3/create_trans.html', context={'account': account, 'transactions': transactions,
                                                             'form': form, 'index': index,
@@ -192,13 +193,18 @@ def result_ipfs_hash(request):
                                                                 'languages': languages})
 
 
-def update_trans(request, id_acc):
-    transactions = Transaction.objects.filter(account__id=id_acc)[0]
+def update_trans(request, id_transaction):
+    transactions = Transaction.objects.get(id=id_transaction)
     if request.method == 'POST':
         form = UpdateTransForm(instance=transactions, data=request.POST or None)
         if form.is_valid():
             form.save()
-            return redirect('w3:update_trans', id_acc=id_acc)
+            return redirect('w3:update_trans', id_transaction=id_transaction)
     form = UpdateTransForm(instance=transactions)
+    w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
+    value = w3.toWei(transactions.value, 'ether')
+    gasprice = w3.toWei(transactions.gas_price, 'gwei')
+    gas = transactions.gas
     return render(request, 'w3/update_trans.html', context={'form': form,
-                                                            'transactions': transactions})
+                                                            'transactions': transactions, 'gas': gas, 'value': value,
+                                                            'gasprice': gasprice})
