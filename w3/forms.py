@@ -37,4 +37,10 @@ class UpdateTransForm(forms.ModelForm):
         fields = ('to_account', 'gas', 'value', 'gas_price',)
 
 
+class UpdateTextTransactionForm(forms.ModelForm):
+    class Meta:
+        model = Transaction
+        fields = ('to_account', 'gas', 'data', 'gas_price',)
+
+
 

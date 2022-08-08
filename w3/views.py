@@ -5,7 +5,8 @@ from django.shortcuts import render, redirect
 from web3 import Web3, HTTPProvider
 
 from blog.models import IndexInfo, Language
-from w3.forms import ConnectWallet, CreateTransForm, CreateTextTransForm, IPFSTransForm, ResultHashForm, UpdateTransForm
+from w3.forms import ConnectWallet, CreateTransForm, CreateTextTransForm, IPFSTransForm, ResultHashForm, \
+    UpdateTransForm, UpdateTextTransactionForm
 from w3.models import AccountMetamask, Transaction, IPFS
 
 
@@ -36,13 +37,6 @@ def connect(request):
 def create_trans(request, id_acc):
     index = IndexInfo.objects.all()[0]
     languages = Language.objects.all()
-
-    w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
-    test_value = w3.toWei(0.3, 'ether')
-    test_gasprice = w3.toWei(3, 'gwei')
-    test_toaccount = '0x33a4Ab8654aCa33161a796fCd1b5AaA6ae35bA92'
-    test_gas = 23000
-
     form = CreateTransForm
     account = AccountMetamask.objects.get(id=id_acc)
     transactions = Transaction.objects.filter(account__id=id_acc)
@@ -52,8 +46,6 @@ def create_trans(request, id_acc):
             inst = form.save(commit=False)
             inst.account = AccountMetamask.objects.get(id=id_acc)
             inst.save()
-            print(inst.id)
-            w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
             # test_toaccount = w3.toChecksumAddress(inst.to_account)
 
             # construct_txn = {
@@ -73,9 +65,7 @@ def create_trans(request, id_acc):
         form = CreateTransForm()
     return render(request, 'w3/create_trans.html', context={'account': account, 'transactions': transactions,
                                                             'form': form, 'index': index,
-                                                            'languages': languages, 'test_value': test_value,
-                                                            'test_gasprice': test_gasprice,
-                                                             'test_toaccount':test_toaccount, 'test_gas': test_gas})
+                                                            'languages': languages})
 
 
 def hex_to_ascii(hex_str):
@@ -85,10 +75,6 @@ def hex_to_ascii(hex_str):
 
 
 def create_text_trans(request, id_acc):
-    w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
-    test_value = w3.toWei(0.3, 'ether')
-    test_gasprice = w3.toWei(3, 'gwei')
-
     index = IndexInfo.objects.all()[0]
     languages = Language.objects.all()
     form = CreateTextTransForm
@@ -100,29 +86,28 @@ def create_text_trans(request, id_acc):
             inst = form.save(commit=False)
             inst.account = AccountMetamask.objects.get(id=id_acc)
             inst.save()
-            w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
+            # w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
 
-            construct_txn = {
-                'from': w3.toChecksumAddress(account.user_wallet_address),
-                'nonce': w3.eth.getTransactionCount(w3.toChecksumAddress(account.user_wallet_address)),
-                'to': w3.toChecksumAddress(inst.to_account),
-                'gas': inst.gas,
-                'data': inst.data.encode('utf-8'),
-                'gasPrice': w3.toWei(inst.gas_price, 'gwei')}
+            # construct_txn = {
+            #     'from': w3.toChecksumAddress(account.user_wallet_address),
+            #     'nonce': w3.eth.getTransactionCount(w3.toChecksumAddress(account.user_wallet_address)),
+            #     'to': w3.toChecksumAddress(inst.to_account),
+            #     'gas': inst.gas,
+            #     'data': inst.data.encode('utf-8'),
+            #     'gasPrice': w3.toWei(inst.gas_price, 'gwei')}
 
-            signed_tx = w3.eth.account.signTransaction(construct_txn, inst.account.private_key)
-            tx_hash = w3.eth.sendRawTransaction(Web3.toHex(signed_tx.rawTransaction))
-            Transaction.objects.filter(id=inst.id).update(res_hash=str(tx_hash.hex()))
-            transaction = w3.eth.getTransaction(tx_hash)
-            Transaction.objects.filter(id=inst.id).update(data=transaction.get('input'))
-            Transaction.objects.filter(id=inst.id).update(text=hex_to_ascii(transaction.get('input')).decode('utf-8'))
-            return redirect('w3:create_text_trans', id_acc=id_acc)
+            # signed_tx = w3.eth.account.signTransaction(construct_txn, inst.account.private_key)
+            # tx_hash = w3.eth.sendRawTransaction(Web3.toHex(signed_tx.rawTransaction))
+            # Transaction.objects.filter(id=inst.id).update(res_hash=str(tx_hash.hex()))
+            # transaction = w3.eth.getTransaction(tx_hash)
+            # Transaction.objects.filter(id=inst.id).update(data=transaction.get('input'))
+            # Transaction.objects.filter(id=inst.id).update(text=hex_to_ascii(transaction.get('input')).decode('utf-8'))
+            return redirect('w3:update_texttrans', id_transaction=inst.id)
         form = CreateTextTransForm()
 
     return render(request, 'w3/create_text_trans.html', context={'account': account, 'transactions': transactions,
                                                                  'form': form, 'index': index,
-                                                                 'languages': languages, 'test_value': test_value,
-                                                                 'test_gasprice': test_gasprice})
+                                                                 'languages': languages})
 
 
 def ipfs(request):
@@ -208,3 +193,17 @@ def update_trans(request, id_transaction):
     return render(request, 'w3/update_trans.html', context={'form': form,
                                                             'transactions': transactions, 'gas': gas, 'value': value,
                                                             'gasprice': gasprice})
+
+
+def update_texttrans(request, id_transaction):
+    transactions = Transaction.objects.get(id=id_transaction)
+    if request.method == 'POST':
+        form = UpdateTextTransactionForm(instance=transactions, data=request.POST or None)
+        if form.is_valid():
+            form.save()
+            return redirect('w3:update_texttrans', id_transaction=id_transaction)
+    form = UpdateTextTransactionForm(instance=transactions)
+    w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
+    gasprice = w3.toWei(transactions.gas_price, 'gwei')
+    gas = transactions.gas
+    return render(request, 'w3/update_texttrans.html', context={'form': form, 'gas': gas, 'gasprice': gasprice})
