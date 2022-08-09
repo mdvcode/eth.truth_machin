@@ -51,7 +51,7 @@ import material design
 								</div>
     <div class="col-lg-12 contact_col">
                                     <label style="color: #2B333F">Data</label>
-                                    <input id="data" class="form_input" type="text" name="data" value="{{ form.data.value }}">
+                                    <input id="data" class="form_input" type="text" name="data" value="{{ data }}">
 								</div>
     <div class="col-lg-12 contact_col">
                                     <label style="color: #2B333F">GasPrice</label>
@@ -75,6 +75,7 @@ import material design
 
 <script>
     var data = document.getElementById('data').value
+    console.log(data)
     var gasprice = {{gasprice}}
     var toaccount = document.getElementById('to_account').value
     var gas = {{gas}}

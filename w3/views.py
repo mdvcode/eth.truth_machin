@@ -1,6 +1,7 @@
 import binascii
 
 import requests
+import web3
 from django.shortcuts import render, redirect
 from web3 import Web3, HTTPProvider
 
@@ -205,5 +206,11 @@ def update_texttrans(request, id_transaction):
     form = UpdateTextTransactionForm(instance=transactions)
     w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
     gasprice = w3.toWei(transactions.gas_price, 'gwei')
+    s = transactions.data.encode('utf-8')
+    data = str(s.hex())
+    print('start')
+    print(data)
+    print(type(data))
     gas = transactions.gas
-    return render(request, 'w3/update_texttrans.html', context={'form': form, 'gas': gas, 'gasprice': gasprice})
+    return render(request, 'w3/update_texttrans.html', context={'form': form, 'gas': gas, 'gasprice': gasprice,
+                                                                'data': data})
