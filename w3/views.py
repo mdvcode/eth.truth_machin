@@ -142,7 +142,7 @@ def item_ipfs(request, id_ipfs):
         IPFS.objects.filter(id=id_ipfs).update(account_id=form.data.get('account'),
                                                to_account=form.data.get('to_account'),
                                                gas=form.data.get('gas'), gas_price=form.data.get('gas_price'),
-                                               text=form.data.get('text'), file=form.data.get('file'), hash_ipfs=response.json().get('Hash'))
+                                               text=data_url, hash_ipfs=response.json().get('Hash'))
         ipfs = IPFS.objects.get(id=id_ipfs)
         # w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
         # construct_txn = {
@@ -207,11 +207,9 @@ def update_texttrans(request, id_transaction):
     form = UpdateTextTransactionForm(instance=transactions)
     w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
     gasprice = w3.toWei(transactions.gas_price, 'gwei')
-    s = transactions.data.encode('utf-8')
-    data = str(s.hex())
     gas = transactions.gas
-    return render(request, 'w3/update_texttrans.html', context={'form': form, 'gas': gas, 'gasprice': gasprice,
-                                                                'data': data})
+    return render(request, 'w3/update_texttrans.html', context={'form': form, 'gas': gas, 'gasprice': gasprice
+                                                                })
 
 
 def update_ipfstrans(request, id_transaction):
@@ -222,4 +220,10 @@ def update_ipfstrans(request, id_transaction):
             form.save()
             return redirect('w3:update_ipfstrans', id_transaction=id_transaction)
     form = UpdateTextTransactionForm(instance=item)
-    return render(request, 'w3/update_ipfstrans.html', context={'form': form})
+    w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
+    gasprice = w3.toWei(item.gas_price, 'gwei')
+    s = item.data.encode('utf-8')
+    data = str(s.hex())
+    gas = item.gas
+    return render(request, 'w3/update_ipfstrans.html', context={'form': form, 'gas': gas, 'gasprice': gasprice,
+                                                                'data': data})

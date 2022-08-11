@@ -50,14 +50,6 @@ import material design
                                     <input id="gas" class="form_input" type="text" name="gas" value="{{ form.gas.value }}">
 								</div>
     <div class="col-lg-12 contact_col">
-                                    <label style="color: #2B333F">Text</label>
-                                    <input id="text" class="form_input" type="text" name="text" value="{{ form.text.value }}">
-								</div>
-                        <div class="col-lg-12 contact_col">
-                                    <label style="color: #2B333F">File</label>
-                                    <input id="file" class="form_input" type="text" name="file" value="{{ form.file.value }}">
-								</div>
-    <div class="col-lg-12 contact_col">
                                     <label style="color: #2B333F">GasPrice</label>
                                     <input id="gas_price" class="form_input" type="text" name="gas_price" value="{{ form.gas_price.value }}">
 								</div>
@@ -78,4 +70,45 @@ import material design
     </div>
     </div>
 </div>
+<script>
+    // var data = document.getElementById('data').value
+    console.log(data)
+    var gasprice = {{gasprice}}
+    var toaccount = document.getElementById('to_account').value
+    var gas = {{gas}}
+    const ethereumButton = document.querySelector('.enableEthereumButton');
+const sendEthButton = document.querySelector('.sendEthButton');
+
+let accounts = [];
+
+//Sending Ethereum to an address
+sendEthButton.addEventListener('click', () => {
+  ethereum
+    .request({
+      method: 'eth_sendTransaction',
+      params: [
+        {
+          from: accounts[0],
+          to: toaccount,
+          data: data,
+          gasPrice: "0x" + Number(gasprice).toString(16),
+          gas: Number(gas).toString(16),
+        },
+      ],
+    })
+    .then((txHash) => {
+        console.log(txHash);
+        console.log('result');
+    })
+    .catch((error) => console.error);
+});
+
+ethereumButton.addEventListener('click', () => {
+  getAccount();
+});
+
+async function getAccount() {
+  accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+}
+</script>
 {% endblock %}
