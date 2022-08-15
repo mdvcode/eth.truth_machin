@@ -208,8 +208,10 @@ def update_texttrans(request, id_transaction):
     w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
     gasprice = w3.toWei(transactions.gas_price, 'gwei')
     gas = transactions.gas
-    return render(request, 'w3/update_texttrans.html', context={'form': form, 'gas': gas, 'gasprice': gasprice
-                                                                })
+    s = transactions.data.encode('utf-8')
+    data = str(s.hex())
+    return render(request, 'w3/update_texttrans.html', context={'form': form, 'gas': gas, 'gasprice': gasprice,
+                                                                'data': data})
 
 
 def update_ipfstrans(request, id_transaction):
