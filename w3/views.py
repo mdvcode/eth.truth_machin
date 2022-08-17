@@ -3,6 +3,8 @@ import binascii
 import requests
 import web3
 from django.shortcuts import render, redirect
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from web3 import Web3, HTTPProvider
 
 from blog.models import IndexInfo, Language
@@ -229,3 +231,11 @@ def update_ipfstrans(request, id_transaction):
     gas = item.gas
     return render(request, 'w3/update_ipfstrans.html', context={'form': form, 'gas': gas, 'gasprice': gasprice,
                                                                 'data': data})
+
+
+class UpdateHashTransaction(APIView):
+    def post(self, request, *args, **kwargs):
+        transaction = Transaction.objects.get(id=request.data.get('id'))
+        transaction.res_hash = request.data.get('res_hash')
+        transaction.save()
+        return Response(transaction.res_hash)
