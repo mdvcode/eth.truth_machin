@@ -224,7 +224,7 @@ def update_ipfstrans(request, id_transaction):
     form = UpdateTextTransactionForm(instance=item)
     w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
     gasprice = w3.toWei(item.gas_price, 'gwei')
-    s = item.data.encode('utf-8')
+    s = item.text.encode('utf-8')
     data = str(s.hex())
     gas = item.gas
     return render(request, 'w3/update_ipfstrans.html', context={'form': form, 'gas': gas, 'gasprice': gasprice,
