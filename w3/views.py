@@ -237,6 +237,5 @@ class UpdateHashTransaction(APIView):
     def post(self, request, *args, **kwargs):
         transaction = Transaction.objects.get(id=request.data.get('id'))
         transaction.res_hash = request.data.get('res_hash')
-        transaction.id = request.data.get('id')
         transaction.save()
-        return Response(transaction.res_hash, transaction.id)
+        return Response(transaction.res_hash, transaction)
