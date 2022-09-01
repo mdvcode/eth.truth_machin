@@ -74,7 +74,8 @@ import material design
     var text = document.getElementById('text').value
     console.log(text)
     var gasprice = {{gasprice}}
-    var metamask_to = document.getElementById('metamask_to').value
+    var from_acc = {{from_acc}}
+    var to_acc = {{to_acc}}
     var gas = {{gas}}
     const sendEthButton = document.querySelector('.sendEthButton');
 
@@ -85,8 +86,8 @@ sendEthButton.addEventListener('click', () => {
       method: 'eth_sendTransaction',
       params: [
         {
-          // from: localStorage.getItem('myAccount'),
-          // to: metamask_to,
+          from: from_acc,
+          to: to_acc,
           data: text,
           gasPrice: "0x" + Number(gasprice).toString(16),
           gas: Number(gas).toString(16),
