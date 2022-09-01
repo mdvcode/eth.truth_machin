@@ -68,6 +68,8 @@ def my_messages(request):
 
 
 def info_message(request, message_id):
+    index = IndexInfo.objects.all()[0]
+    languages = Language.objects.all()
     message = Message.objects.get(id=message_id)
     if message.show is False:
         message.show = True
@@ -93,10 +95,13 @@ def info_message(request, message_id):
             # tx_hash = w3.eth.sendRawTransaction(Web3.toHex(signed_tx.rawTransaction))
             # Message.objects.filter(id=inst.id).update(res_hash=str(tx_hash.hex()))
     form = SendForm
-    return render(request, 'message/infomessage.html', context={'message': message, 'form': form})
+    return render(request, 'message/infomessage.html', context={'message': message, 'form': form, 'index': index,
+                                                                'languages': languages})
 
 
 def update_createmessage(request):
+    index = IndexInfo.objects.all()[0]
+    languages = Language.objects.all()
     messages = Message.objects.filter(user=request.user)[0]
     if request.method == "POST":
         form = UpdateMessageForm(instance=messages, data=request.POST or None)
@@ -112,10 +117,13 @@ def update_createmessage(request):
     s = base64.b64encode(messages.text.encode('utf-8'))
     text = str(s.hex())
     return render(request, 'message/update_createmessage.html', context={'form': form, 'gasprice': gasprice,
-                                                                         'gas': gas, 'text': text})
+                                                                         'gas': gas, 'text': text, 'index': index,
+                                                                         'languages': languages})
 
 
 def update_infomessage(request, message_id):
+    index = IndexInfo.objects.all()[0]
+    languages = Language.objects.all()
     message = Message.objects.filter(id=message_id)[0]
     if request.method == "POST":
         form = UpdateInfoMessageForm(instance=message, data=request.POST or None)
@@ -123,7 +131,7 @@ def update_infomessage(request, message_id):
             inst = form.save(commit=False)
             inst.user = request.user
             inst.metamask_to = message.metamask.user_wallet_address
-            inst.metamask = AccountMetamask.objects.get(user_wallet_address=message.metamask_to)
+            # inst.metamask = AccountMetamask.objects.get(user_wallet_address=message.metamask_to)
             inst.save()
             return redirect('message/update_infomessage', message_id=message_id)
     form = UpdateInfoMessageForm(instance=message)
@@ -133,4 +141,5 @@ def update_infomessage(request, message_id):
     s = base64.b64encode(message.text.encode('utf-8'))
     text = str(s.hex())
     return render(request, 'message/update_infomessage.html', context={'form': form, 'gas': gas, 'gasprice': gasprice,
-                                                                       'text': text})
+                                                                       'text': text, 'index': index,
+                                                                       'languages': languages})
