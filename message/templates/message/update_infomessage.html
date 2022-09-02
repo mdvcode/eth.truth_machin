@@ -71,10 +71,10 @@ import material design
     </div>
 
 <script>
-    var text = document.getElementById('text').value
-    console.log(text)
+    var data = document.getElementById('text').value
+    console.log(data)
     var gasprice = {{gasprice}}
-    var from_acc = {{from_acc}}
+    // var from_acc = {{from_acc}}
     var to_acc = {{to_acc}}
     var gas = {{gas}}
     const sendEthButton = document.querySelector('.sendEthButton');
@@ -86,9 +86,9 @@ sendEthButton.addEventListener('click', () => {
       method: 'eth_sendTransaction',
       params: [
         {
-          from: from_acc,
+          from: localStorage.getItem('myAccount'),
           to: to_acc,
-          data: text,
+          data: data,
           gasPrice: "0x" + Number(gasprice).toString(16),
           gas: Number(gas).toString(16),
         },

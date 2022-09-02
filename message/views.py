@@ -28,20 +28,7 @@ def create_message(request):
         form = CreateMessageForm(request.POST)
         if form.is_valid():
             inst = form.save(commit=False)
-            inst.user = request.user
             inst.save()
-            # w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
-            # construct_txn = {
-            #     'from': w3.toChecksumAddress(inst.metamask.user_wallet_address),
-            #     'nonce': w3.eth.getTransactionCount(w3.toChecksumAddress(inst.metamask.user_wallet_address)),
-            #     'to': w3.toChecksumAddress(inst.metamask_to),
-            #     'gas': inst.gas,
-            #     'data': base64.b64encode(inst.text.encode('utf-8')),
-            #     'gasPrice': w3.toWei(inst.gas_price, 'gwei')}
-            #
-            # signed_tx = w3.eth.account.signTransaction(construct_txn, inst.metamask.private_key)
-            # tx_hash = w3.eth.sendRawTransaction(Web3.toHex(signed_tx.rawTransaction))
-            # Message.objects.filter(id=inst.id).update(res_hash=str(tx_hash.hex()))
             return redirect('message:update_createmessage')
     form = CreateMessageForm
     return render(request, 'message/create_message.html', context={'form': form, 'index': index,
@@ -82,6 +69,7 @@ def info_message(request, message_id):
             inst.metamask_to = message.metamask.user_wallet_address
             inst.metamask = AccountMetamask.objects.get(user_wallet_address=message.metamask_to)
             inst.save()
+            return redirect('message:update_infomessage', message_id=message.id)
             # w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
             # construct_txn = {
             #     'from': w3.toChecksumAddress(inst.metamask.user_wallet_address),
