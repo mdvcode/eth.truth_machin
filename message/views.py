@@ -28,6 +28,7 @@ def create_message(request):
         form = CreateMessageForm(request.POST)
         if form.is_valid():
             inst = form.save(commit=False)
+            inst.user = request.user
             inst.save()
             return redirect('message:update_createmessage')
     form = CreateMessageForm
@@ -119,7 +120,7 @@ def update_infomessage(request, message_id):
             inst = form.save(commit=False)
             inst.user = request.user
             inst.metamask_to = message.metamask.user_wallet_address
-            # inst.metamask = AccountMetamask.objects.get(user_wallet_address=message.metamask_to)
+            inst.metamask = AccountMetamask.objects.get(user_wallet_address=message.metamask_to)
             inst.save()
             return redirect('message/update_infomessage', message_id=message_id)
     form = UpdateInfoMessageForm(instance=message)
