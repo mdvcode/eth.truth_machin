@@ -41,10 +41,14 @@ import material design
                 <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="row contact_row">
-<!--								<div class="col-lg-12 contact_col">-->
-<!--                                    <label style="color: #2B333F">To account</label>-->
-<!--                                    <input id="metamask_to" class="form_input" type="text" name="metamask_to" value="{{ form.metamask_to.value }}">-->
-<!--								</div>-->
+    <div class="col-lg-12 contact_col">
+                                    <label style="color: #2B333F">From account</label>
+                                    <input id="metamask_to" class="form_input" type="text" name="metamask_to" value="{{ from_acc }}">
+								</div>
+    <div class="col-lg-12 contact_col">
+                                    <label style="color: #2B333F">To account</label>
+                                    <input id="metamask" class="form_input" type="text" name="metamask" value="{{ to_acc }}">
+								</div>
     <div class="col-lg-12 contact_col">
                                     <label style="color: #2B333F">Gas</label>
                                     <input id="gas" class="form_input" type="text" name="gas" value="{{ form.gas.value }}">
@@ -74,8 +78,9 @@ import material design
     var data = document.getElementById('text').value
     console.log(data)
     var gasprice = {{gasprice}}
-    // var from_acc = {{from_acc}}
-    var to_acc = {{to_acc}}
+    var from_acc = document.getElementById('metamask_to').value
+    var to_acc = document.getElementById('metamask').value
+    console.log(to_acc)
     var gas = {{gas}}
     const sendEthButton = document.querySelector('.sendEthButton');
 
@@ -86,7 +91,7 @@ sendEthButton.addEventListener('click', () => {
       method: 'eth_sendTransaction',
       params: [
         {
-          from: localStorage.getItem('myAccount'),
+          from: from_acc,
           to: to_acc,
           data: data,
           gasPrice: "0x" + Number(gasprice).toString(16),

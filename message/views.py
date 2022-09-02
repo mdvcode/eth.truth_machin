@@ -124,8 +124,9 @@ def update_infomessage(request, message_id):
             return redirect('message/update_infomessage', message_id=message_id)
     form = UpdateInfoMessageForm(instance=message)
     w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
-    from_acc = message.metamask.user_wallet_address
-    to_acc = message.metamask_to
+    from_acc = message.metamask_to
+    print(from_acc)
+    to_acc = message.metamask.user_wallet_address
     gasprice = w3.toWei(message.gas_price, 'gwei')
     gas = message.gas
     s = base64.b64encode(message.text.encode('utf-8'))
