@@ -50,32 +50,15 @@
 				<div class="row">
 					<div class="col">
 						<div class="top_bar_content d-flex flex-row align-items-center justify-content-start">
-							<div class="top_bar_phone"><span class="top_bar_title">phone:</span>{{index.phone}}</div>
 							<div class="top_bar_right ml-auto">
 
-								<!-- Language -->
-								<div class="top_bar_lang">
-									<span class="top_bar_title">Languages:</span>
-									<ul class="lang_list">
-										<li class="hassubs">
-											<a href="#">Select Language<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-											<ul>
-												{% for language in languages %}
-												<li><a href="{% url 'blog:lang' language_id=language.id %}">{{language.name}}</a></li>
-												{% endfor %}
-
-											</ul>
-										</li>
-									</ul>
-								</div>
 
 								<!-- Social -->
 								<div class="top_bar_social">
-									<span class="top_bar_title social_title">follow us</span>
+									<span style="color: rgba(97,0,255,0.5)" class="top_bar_title social_title">follow us</span>
 									<ul>
-										<li><a href="{{index.facebook}}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-										<li><a href="{{index.instagram}}" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-										<li>{{bit.buy}}/{{bit.sale}}</li>
+										<li><a href="{{index.facebook}}" target="_blank"><i style="color: rgba(255,176,92,0.5)" href="{{index.facebook}}" class="fa fa-facebook" aria-hidden="true"></i></a></li>
+										<li><a href="{{index.instagram}}" target="_blank"><i style="color: rgba(255,176,92,0.5)" class="fa fa-instagram" aria-hidden="true"></i></a></li>
 									</ul>
 								</div>
 							</div>
@@ -95,25 +78,16 @@
 						<div class="logo_container mr-auto">
 							<a href="#">
 								<div><img width="150"; height="80" src="{{ domain }}/media/logo.png" alt=""></div>
-<!--								<div style="color: rgb(149,132,255)" class="logo_text">New Information Technologies!</div>-->
 							</a>
 						</div>
 						<nav class="main_nav_contaner" >
 							<ul class="main_nav">
 
-								<li class="active"><a href="{% url 'blog:home' %}">Home</a></li>
-								{% if user.is_authenticated %}
-								<li><a href="{% url 'blog:items_aut' author_id=user.id %}">Posts</a></li>
-								<li><a href="{% url 'w3:connect' %}">Connect wallet</a></li>
-								<li><a href="{% url 'blog:add_post' %}">Create Post</a></li>
-								<li><a href="{% url 'blog:add_lang' %}">Create Language</a></li>
-								<li><a href="{% url 'message:my_messages' %}">Messages</a></li>
-								<li><a href="{% url 'users:logout' %}">Logout</a></li>
+								<li class="active"><a style="color: rgba(97,0,255,0.5)" href="{% url 'blog:home' %}">Home</a></li>
+								<li><a style="color: rgba(97,0,255,0.5)" href="https://nit.network/">Blog</a></li>
+								<li><a style="color: rgba(97,0,255,0.5)" href=123>About</a></li>
 
-								{% else %}
-								<li><a href="{% url 'users:login' %}">Login</a></li>
-								<li><a href="{% url 'users:signup' %}">Signup</a></li>
-								{% endif %}
+
 
 							</ul>
 						</nav>
@@ -121,7 +95,6 @@
 
 							<!-- Hamburger -->
 
-							<div class="user"><a href="{% url 'users:profile' %}"><i class="fa fa-user" aria-hidden="true"></i></a></div>
 							<div class="hamburger menu_mm">
 								<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
 
@@ -133,30 +106,18 @@
 		<nav class="menu_nav">
 			<ul class="menu_mm">
 				<li class="active"><a href="{% url 'blog:home' %}">Home</a></li>
-								{% if user.is_authenticated %}
-								<li><a href="{% url 'blog:items_aut' author_id=user.id %}">My Posts</a></li>
-								<li><a href="{% url 'w3:connect' %}">Connect Wallet</a></li>
-								<li><a href="{% url 'w3:result_ipfs_hash' %}">Result ipfs</a></li>
-								<li><a href="{% url 'blog:add_post' %}">Create Post</a></li>
-								<li><a href="{% url 'blog:add_lang' %}">Create Language</a></li>
-								<li><a href="{% url 'message:my_messages' %}">My Messages</a></li>
-								<li><a href="{% url 'users:logout' %}">Logout</a></li>
+								<li><a href="https://nit.network/">Blog</a></li>
+								<li><a href="123">About</a></li>
 
-								{% else %}
-								<li><a href="{% url 'users:login' %}">Login</a></li>
-								<li><a href="{% url 'users:signup' %}">Signup</a></li>
-								{% endif %}
 
 			</ul>
 		</nav>
 		<div class="menu_extra">
-			<div class="menu_phone"><span class="menu_title">phone:</span>+44 300 303 0266</div>
 			<div class="menu_social">
 				<span class="menu_title">follow us</span>
 				<ul>
 					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
 					<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-					<li><a href="#">123{{ bit.sale }}</a></li>
 				</ul>
 			</div>
 		</div>

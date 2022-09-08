@@ -49,9 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'users',
     'w3',
-    'message',
     'widget_tweaks',
     'rest_framework',
     'rest_framework.authtoken',
@@ -151,7 +149,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    'blog/static', 'users/static',
+    'blog/static',
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 

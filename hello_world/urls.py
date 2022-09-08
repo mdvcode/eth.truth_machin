@@ -26,9 +26,7 @@ from web3auth import urls as web3auth_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('blog/', include('blog.urls')),
-    path('users/', include('users.urls')),
-    path('w3/', include('w3.urls')),
-    path('message/', include('message.urls')),
+    # path('w3/', include('w3.urls')),
     url(r'^auth/', include('djoser.urls')),
     url(r'^auth-token/', include('djoser.urls.authtoken')),
     url(r'^', include(web3auth_urls)),
