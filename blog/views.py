@@ -4,8 +4,8 @@ from django.contrib.sites.models import Site
 from django.shortcuts import render, redirect
 from web3 import Web3, HTTPProvider
 
-from .forms import CreateTextTransForm, UpdateTextTransactionForm
-from .models import IndexInfo, Transaction, AccountMetamask
+from .forms import CreateTextTransForm, UpdateTextTransactionForm, ConnectWallet
+from .models import IndexInfo, Transaction, MetamaskAccount
 
 
 def home(request):
@@ -24,14 +24,20 @@ def hex_to_ascii(hex_str):
 
 def create_text_trans(request):
     index = IndexInfo.objects.all()[0]
+    if request.method == "POST":
+        form2 = ConnectWallet(data=request.POST)
+        if form2.is_valid():
+            inst = form2.save(commit=False)
+            inst.save()
+    form2 = ConnectWallet()
     form = CreateTextTransForm
-    account = AccountMetamask.objects.get()
+    account = MetamaskAccount.objects.get()
     transactions = Transaction.objects.filter()
     if request.method == 'POST':
         form = CreateTextTransForm(request.POST)
         if form.is_valid():
             inst = form.save(commit=False)
-            inst.account = AccountMetamask.objects.get()
+            inst.account = MetamaskAccount.objects.filter()
             inst.save()
             # w3 = Web3(HTTPProvider("https://ropsten.infura.io/v3/27709d11030e4a8f8a3066732c9e6b90"))
 
@@ -52,7 +58,8 @@ def create_text_trans(request):
             return redirect('blog:update_texttrans', id_transaction=inst.id)
         form = CreateTextTransForm()
 
-    return render(request, 'blog/create_text_trans.html', context={'account': account, 'transactions': transactions,
+    return render(request, 'blog/create_text_trans.html', context={'account': account, 'form2': form2,
+                                                                   'transactions': transactions,
                                                                    'form': form, 'index': index})
 
 

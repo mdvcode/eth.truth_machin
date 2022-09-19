@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/eth.truth_mashine.iml" filepath="$PROJECT_DIR$/.idea/eth.truth_mashine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/eth.truth_machine.iml" filepath="$PROJECT_DIR$/.idea/eth.truth_machine.iml" />
     </modules>
   </component>
 </project>

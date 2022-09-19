@@ -35,90 +35,170 @@ import material design
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
     integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-<div class="container">
     <div class="row">
+    <div class="container">
         <div class="col-md-12">
-            <h4>Transaction</h4>
-            <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">User wallet adress</th>
-      <th scope="col">Balance</th>
-      <th scope="col">Count transaction</th>
-      <th scope="col">Active</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">{{account.id}}</th>
-      <td>{{account.user_wallet_address}}</td>
-      <td>{{account.balance}}</td>
-      <td>{{account.count_trans}}</td>
-      <td>{{account.active}}</td>
-    </tr>
-  </tbody>
-</table>
-            </div>
-<div class="col-md-12">
-            <h4>History transaction:</h4>
-            <table class="table">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">To account</th>
-                      <th scope="col">Gas</th>
-                      <th scope="col">Data</th>
-                      <th scope="col">gasPrice</th>
-                      <th scope="col">Result hash</th>
-                      <th scope="col">Text</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                  {% for transaction in transactions %}
-                    <tr>
-                      <th scope="row">{{transaction.id}}</th>
-                      <td>{{transaction.to_account}}</td>
-                      <td>{{transaction.gas}}</td>
-                      <td>{{transaction.data}}</td>
-                      <td>{{transaction.gas_price}}</td>
-                      <td>{{transaction.res_hash}}</td>
-                      <td>{{transaction.text}}</td>
-                    </tr>
-                  {% endfor %}
-  </tbody>
-</table>
-        </div>
-        <div class="col-md-12">
-            <h4>Create text transaction</h4>
-            <form class="select2-selection--multiple" method="post">
-                {% csrf_token %}
-                <div class="row">
-                <div class="col-md-3">
-                    <label style="padding: 0; margin: 0">To account</label>
-                <input class="form_input" id="to_account" type="text" name="to_account">
-                    </div>
-                <div class="col-md-3">
-                    <label style="padding: 0; margin: 0">Gas</label>
-                <input class="form_input" id="gas" type="text" name="gas">
-                    </div>
-                    <div class="col-md-3">
-                    <label style="padding: 0; margin: 0">Data</label>
-                <input class="form_input" id="data" type="text" name="data">
-                    </div>
-                    <div class="col-md-3">
-                    <label style="padding: 0; margin: 0">gasPrice</label>
-                <input class="form_input" id="gas_price" type="text" name="gas_price">
-                    </div>
+            <h4>Connect wallet</h4>
+                <button id='loginButton' onclick="" class="mx-auto rounded-md p-2 bg-purple-500 text-white">
+                      Login with MetaMask
+                </button>
 
-                <div class="col-md-12">
-                <button style="margin-top: 17px" type="submit" class="btn btn-outline-primary">Create text transaction</button>
-                    </div>
-                    </div>
-            </form>
-
-        </div>
+                <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
+                <form class="select2-selection--multiple" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                    <div class="col-md-5">
+                        <label style="padding: 0; margin: 0">User wallet address</label>
+                    <input class="form_input" id="user_wallet_address" type="text" name="user_wallet_address">
+                        </div>
+                    <div class="col-md-2">
+                    <button style="margin-top: 17px" type="submit" class="btn btn-outline-primary">Key connection</button>
+                        </div>
+                        </div>
+                </form>
+            <br>
         </div>
     </div>
+    </div>
 
+<script>
+window.userWalletAddress = null
+    const loginButton = document.getElementById('loginButton')
+    const userWallet = document.getElementById('user_wallet_address')
+
+    function toggleButton() {
+      if (!window.ethereum) {
+        loginButton.innerText = 'MetaMask is not installed'
+        loginButton.classList.remove('bg-purple-500', 'text-white')
+        loginButton.classList.add('bg-gray-500', 'text-gray-100', 'cursor-not-allowed')
+        return false
+      }
+
+      loginButton.addEventListener('click', loginWithMetaMask)
+    }
+
+    async function loginWithMetaMask() {
+      const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' })
+        .catch((e) => {
+          console.error(e.message)
+          return
+        })
+      if (!accounts) { return }
+console.log(window.ethereum)
+      window.userWalletAddress = accounts[0]
+        console.log(accounts[0])
+        localStorage.setItem('myAccount', accounts[0]);
+      let test = localStorage.getItem('myAccount')
+        console.log(test)
+      userWallet.value = window.userWalletAddress
+      loginButton.innerText = 'Sign out of MetaMask'
+
+      loginButton.removeEventListener('click', loginWithMetaMask)
+      setTimeout(() => {
+        loginButton.addEventListener('click', signOutOfMetaMask)
+      }, 200)
+    }
+
+    function signOutOfMetaMask() {
+      window.userWalletAddress = null
+      userWallet.innerText = ''
+      loginButton.innerText = 'Sign in with MetaMask'
+
+      loginButton.removeEventListener('click', signOutOfMetaMask)
+      setTimeout(() => {
+        loginButton.addEventListener('click', loginWithMetaMask)
+      }, 200)
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      toggleButton()
+    });
+</script>
+{##}
+{#<div class="container">#}
+{#    <div class="row">#}
+{#        <div class="col-md-12">#}
+{#            <h4>Transaction</h4>#}
+{#            <table class="table">#}
+{#  <thead>#}
+{#    <tr>#}
+{#      <th scope="col">#</th>#}
+{#      <th scope="col">User wallet adress</th>#}
+{#      <th scope="col">Balance</th>#}
+{#      <th scope="col">Count transaction</th>#}
+{#      <th scope="col">Active</th>#}
+{#    </tr>#}
+{#  </thead>#}
+{#  <tbody>#}
+{#    <tr>#}
+{#      <th scope="row">{{account.id}}</th>#}
+{#      <td>{{account.user_wallet_address}}</td>#}
+{#      <td>{{account.balance}}</td>#}
+{#      <td>{{account.count_trans}}</td>#}
+{#      <td>{{account.active}}</td>#}
+{#    </tr>#}
+{#  </tbody>#}
+{#</table>#}
+{#            </div>#}
+{#<div class="col-md-12">#}
+{#            <h4>History transaction:</h4>#}
+{#            <table class="table">#}
+{#                  <thead>#}
+{#                    <tr>#}
+{#                      <th scope="col">#</th>#}
+{#                      <th scope="col">To account</th>#}
+{#                      <th scope="col">Gas</th>#}
+{#                      <th scope="col">Data</th>#}
+{#                      <th scope="col">gasPrice</th>#}
+{#                      <th scope="col">Result hash</th>#}
+{#                      <th scope="col">Text</th>#}
+{#                    </tr>#}
+{#                  </thead>#}
+{#                  <tbody>#}
+{#                  {% for transaction in transactions %}#}
+{#                    <tr>#}
+{#                      <th scope="row">{{transaction.id}}</th>#}
+{#                      <td>{{transaction.to_account}}</td>#}
+{#                      <td>{{transaction.gas}}</td>#}
+{#                      <td>{{transaction.data}}</td>#}
+{#                      <td>{{transaction.gas_price}}</td>#}
+{#                      <td>{{transaction.res_hash}}</td>#}
+{#                      <td>{{transaction.text}}</td>#}
+{#                    </tr>#}
+{#                  {% endfor %}#}
+{#  </tbody>#}
+{#</table>#}
+{#        </div>#}
+{#        <div class="col-md-12">#}
+{#            <h4>Create text transaction</h4>#}
+{#            <form class="select2-selection--multiple" method="post">#}
+{#                {% csrf_token %}#}
+{#                <div class="row">#}
+{#                <div class="col-md-3">#}
+{#                    <label style="padding: 0; margin: 0">To account</label>#}
+{#                <input class="form_input" id="to_account" type="text" name="to_account">#}
+{#                    </div>#}
+{#                <div class="col-md-3">#}
+{#                    <label style="padding: 0; margin: 0">Gas</label>#}
+{#                <input class="form_input" id="gas" type="text" name="gas">#}
+{#                    </div>#}
+{#                    <div class="col-md-3">#}
+{#                    <label style="padding: 0; margin: 0">Data</label>#}
+{#                <input class="form_input" id="data" type="text" name="data">#}
+{#                    </div>#}
+{#                    <div class="col-md-3">#}
+{#                    <label style="padding: 0; margin: 0">gasPrice</label>#}
+{#                <input class="form_input" id="gas_price" type="text" name="gas_price">#}
+{#                    </div>#}
+{##}
+{#                <div class="col-md-12">#}
+{#                <button style="margin-top: 17px" type="submit" class="btn btn-outline-primary">Create text transaction</button>#}
+{#                    </div>#}
+{#                    </div>#}
+{#            </form>#}
+{##}
+{#        </div>#}
+{#        </div>#}
+{#    </div>#}
+{##}
 {%endblock%}
