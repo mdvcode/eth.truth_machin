@@ -4,7 +4,7 @@ from django.contrib.sites.models import Site
 from django.shortcuts import render, redirect
 from web3 import Web3, HTTPProvider
 
-from .forms import CreateTextTransForm, UpdateTextTransactionForm, ConnectWallet
+from .forms import CreateTextTransForm, UpdateTextTransactionForm, ConnectWallet, IPFSTransForm
 from .models import IndexInfo, Transaction, MetamaskAccount
 
 
@@ -25,10 +25,18 @@ def hex_to_ascii(hex_str):
 def create_text_trans(request):
     index = IndexInfo.objects.all()[0]
     if request.method == "POST":
-        form = ConnectWallet(data=request.POST)
-        if form.is_valid():
-            inst = form.save(commit=False)
-            inst.save()
+        print(request.POST)
+        if 'user_wallet_address' in request.POST:
+            form = ConnectWallet(data=request.POST)
+            if form.is_valid():
+                inst = form.save(commit=False)
+                inst.save()
+        else:
+            form = CreateTextTransForm(request.POST)
+            if form.is_valid():
+                inst = form.save(commit=False)
+                inst.save()
+                return redirect('blog:update_texttrans', id_transaction=inst.id)
     form = ConnectWallet()
     # form = CreateTextTransForm
     # transactions = Transaction.objects.filter()
@@ -56,6 +64,23 @@ def create_text_trans(request):
         # form = CreateTextTransForm()
     return render(request, 'blog/create_text_trans.html', context={'form': form,
                                                                    'index': index})
+
+
+def ipfs_trans(request):
+    index = IndexInfo.objects.all()[0]
+    if request.method == "POST":
+        if 'user_wallet_address' in request.POST:
+            form = ConnectWallet(data=request.POST)
+            if form.is_valid():
+                inst = form.save(commit=False)
+                inst.save()
+        else:
+            form = IPFSTransForm(request.POST, request.FILES)
+            if form.is_valid():
+                inst = form.save(commit=False)
+                inst.save()
+    form = IPFSTransForm()
+    return render(request, 'blog/ipfs_trans.html', context={'index': index, 'form': form})
 
 
 def update_texttrans(request, id_transaction):

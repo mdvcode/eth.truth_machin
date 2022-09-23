@@ -13,7 +13,7 @@ class MetamaskAccount(models.Model):
     user_wallet_address = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
-        return self.user_wallet_address
+        return str(self.id)
 
 
 class Transaction(models.Model):
@@ -22,5 +22,14 @@ class Transaction(models.Model):
     res_hash = models.CharField(max_length=250, null=True, blank=True)
     data = models.CharField(max_length=5000, null=True, blank=True)
     text = models.CharField(max_length=250, null=True, blank=True)
+
+
+class IPFS(models.Model):
+    objects = None
+    file = models.FileField(null=True, blank=True)
+    result_hash = models.CharField(max_length=250, null=True, blank=True)
+    account = models.ForeignKey(MetamaskAccount, null=True, blank=True, on_delete=models.CASCADE)
+    text = models.CharField(max_length=250, null=True, blank=True)
+    hash_ipfs = models.CharField(max_length=250, null=True, blank=True)
 
 

@@ -1,6 +1,6 @@
 from django import forms
 
-from blog.models import Transaction, MetamaskAccount
+from blog.models import Transaction, MetamaskAccount, IPFS
 
 
 class CreateTextTransForm(forms.ModelForm):
@@ -19,6 +19,12 @@ class ConnectWallet(forms.ModelForm):
     class Meta:
         model = MetamaskAccount
         fields = ('user_wallet_address',)
+
+
+class IPFSTransForm(forms.ModelForm):
+    class Meta:
+        model = IPFS
+        fields = ('file', 'text',)
 
 
 
