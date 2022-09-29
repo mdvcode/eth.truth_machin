@@ -133,10 +133,12 @@ console.log(window.ethereum)
       toggleButton()
     });
 
+
+
+var data_url = {{ data_url }}
 var data = document.getElementById('data').value
     console.log(data)
 const sendEthButton = document.querySelector('.sendEthButton');
-
 
 //Sending Ethereum to an address
 sendEthButton.addEventListener('click', () => {
@@ -147,7 +149,7 @@ sendEthButton.addEventListener('click', () => {
         {
           from: localStorage.getItem('myAccount'),
           to: localStorage.getItem('myAccount'),
-          data: data,
+          data: data + data_url,
         },
       ],
     })

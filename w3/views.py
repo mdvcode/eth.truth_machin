@@ -111,7 +111,7 @@
 #         #     'gas': ipfs.gas,
 #         #     'data': ipfs.text.encode('utf-8'),
 #         #     'gasPrice': w3.toWei(ipfs.gas_price, 'gwei')}
-#
+
 #         # signed_tx = w3.eth.account.signTransaction(construct_txn, ipfs.account.private_key)
 #         # tx_hash = w3.eth.sendRawTransaction(Web3.toHex(signed_tx.rawTransaction))
 #         # IPFS.objects.filter(id=id_ipfs).update(result_hash=str(tx_hash.hex()))
