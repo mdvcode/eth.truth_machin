@@ -42,45 +42,49 @@ import material design
                 <button id='loginButton' onclick="" class="mx-auto rounded-md p-2 bg-purple-500 text-white">
                       Login with MetaMask
                 </button>
-
+            <hr>
                 <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
                 <form class="select2-selection--multiple" method="POST">
                     {% csrf_token %}
-                    <div class="row">
-                    <div class="col-md-5">
-                        <label style="padding: 0; margin: 0">User wallet address</label>
-                    <input class="form_input" id="user_wallet_address" type="text" name="user_wallet_address">
-                        </div>
-                    <div class="col-md-2">
-                    <button style="margin-top: 17px" type="submit" class="btn btn-outline-primary">Key connection</button>
-                        </div>
-                        </div>
-                </form>
-            <br>
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="col-lg-12 contact_col">
-                    <label style="color: #2B333F">Photo</label>
+                    <label style="color: #2B333F"><h4>Photo</h4></label>
                     {{form.file|add_class:'form_input '}}
+                    <br>
                 </div>
-                <div class="col-md-5">
-                    <label style="padding: 0; margin: 0">Text</label>
-                    <input class="form_input" id="text" type="text" name="text">
-                </div>
-                <br>
                 <button type="submit" class="btn btn-outline-primary">Create</button>
             </form>
+                    <hr>
+                <div class="col-md-12">
+                    <label style="padding: 0; margin: 0"><h4>Text</h4></label>
+                    <input class="form_input" id="text" type="text" name="text">
+                    <hr>
+                </div>
+
         </div>
         <div class="col-md-12">
             <h4>Send Transaction</h4>
-            <hr>
-            <h5>Send transaction metamask</h5>
             <button class="sendEthButton btn">Send</button>
         </div>
     </div>
     </div>
 
 <script>
+function ascii_to_hexa(str)
+  {
+ var arr1 = [];
+ for (var n = 0, l = str.length; n < l; n ++)
+     {
+  var hex = Number(str.charCodeAt(n)).toString(16);
+  arr1.push(hex);
+  }
+ return arr1.join('');
+   }
+
+
+
+    const sendEthButton = document.querySelector('.sendEthButton');
 window.userWalletAddress = null
     const loginButton = document.getElementById('loginButton')
     const userWallet = document.getElementById('user_wallet_address')
@@ -112,10 +116,21 @@ console.log(window.ethereum)
       userWallet.value = window.userWalletAddress
       loginButton.innerText = 'Sign out of MetaMask'
 
+
       loginButton.removeEventListener('click', loginWithMetaMask)
       setTimeout(() => {
         loginButton.addEventListener('click', signOutOfMetaMask)
       }, 200)
+        let xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://127.0.0.1:8000/blog/create/user/wallet/address/");
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onload = () => console.log(xhr.responseText);
+    let data = JSON.stringify({
+      "user_wallet_address": window.userWalletAddress,
+    });
+    console.log(userWalletAddress)
+    xhr.send(data);
     }
 
     function signOutOfMetaMask() {
@@ -135,13 +150,11 @@ console.log(window.ethereum)
 
 
 
-var data_url = {{ data_url }}
-var data = document.getElementById('data').value
-    console.log(data)
-const sendEthButton = document.querySelector('.sendEthButton');
-
+{#var data_url = {{ data_url }}#}
+{#const sendEthButton = document.querySelector('.sendEthButton');#}
 //Sending Ethereum to an address
 sendEthButton.addEventListener('click', () => {
+    var data_form = document.getElementById('text').value
   ethereum
     .request({
       method: 'eth_sendTransaction',
@@ -149,15 +162,25 @@ sendEthButton.addEventListener('click', () => {
         {
           from: localStorage.getItem('myAccount'),
           to: localStorage.getItem('myAccount'),
-          data: data + data_url,
+          data: ascii_to_hexa(data_form),
         },
       ],
     })
     .then((txHash) => {
         console.log(txHash);
         console.log('result');
+        let xhr2 = new XMLHttpRequest();
+    xhr2.open("POST", "http://127.0.0.1:8000/blog/create/ipfs/data/");
+    xhr2.setRequestHeader("Accept", "application/json");
+    xhr2.setRequestHeader("Content-Type", "application/json");
+    xhr2.onload = () => console.log(xhr2.responseText);
+    let data2 = JSON.stringify({
+
+      "data": ascii_to_hexa(data_form),
+        "res_hash": txHash,
+    });
+    xhr2.send(data2);
     })
-    .catch((error) => console.error);
 });
 
 ethereumButton.addEventListener('click', () => {

@@ -24,7 +24,7 @@ class ConnectWallet(forms.ModelForm):
 class IPFSTransForm(forms.ModelForm):
     class Meta:
         model = IPFS
-        fields = ('file', 'text',)
+        fields = ('file',)
 
 
 

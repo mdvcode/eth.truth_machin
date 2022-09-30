@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from blog.models import MetamaskAccount, Transaction
+from blog.models import MetamaskAccount, Transaction, IPFS
 
 
 class WalletSerializer(serializers.ModelSerializer):
@@ -12,6 +12,12 @@ class WalletSerializer(serializers.ModelSerializer):
 class DataSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
-        fields = ['data']
+        fields = ['data', 'res_hash']
+
+
+class IPFSDataSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IPFS
+        fields = ['text', 'result_hash']
 
 

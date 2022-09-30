@@ -8,7 +8,7 @@ from web3 import Web3, HTTPProvider
 
 from .forms import CreateTextTransForm, UpdateTextTransactionForm, ConnectWallet, IPFSTransForm
 from .models import IndexInfo, Transaction, MetamaskAccount, IPFS
-from .serializers import WalletSerializer, DataSerializer
+from .serializers import WalletSerializer, DataSerializer, IPFSDataSerializer
 
 
 def home(request):
@@ -49,27 +49,20 @@ def create_text_trans(request):
 
 def ipfs_trans(request):
     index = IndexInfo.objects.all()[0]
-    # if request.method == "POST":
-    #     if 'user_wallet_address' in request.POST:
-    #         form = ConnectWallet(data=request.POST)
-    #         if form.is_valid():
-    #             inst = form.save(commit=False)
-    #             inst.save()
-    #     else:
+    data_url = ''
     if request.method == "POST":
         form = IPFSTransForm(request.POST, request.FILES)
         if form.is_valid():
             inst = form.save(commit=False)
             inst.save()
-    if request.method == "POST":
-        form = IPFSTransForm(request.POST, request.FILES)
-        files = {
-            'file': bytes(form.file.read())
-        }
-        response = requests.post('https://ipfs.infura.io:5001/api/v0/add', files=files,
-                                 auth=('29QAqPI0HxrbfPWaTYotMnpdyho', 'a1d30f9c414e15aa990a140ac924f33b'))
-        data_url = 'https://ipfs.io/ipfs/' + response.json().get('Hash')
-        IPFS.objects.filter().update(hash_ipfs=response.json().get('Hash'))
+            files = {
+                'file': bytes(inst.file.read())
+            }
+            response = requests.post('https://ipfs.infura.io:5001/api/v0/add', files=files,
+                                     auth=('29QAqPI0HxrbfPWaTYotMnpdyho', 'a1d30f9c414e15aa990a140ac924f33b'))
+            print(response)
+            data_url = 'https://ipfs.io/ipfs/' + response.json().get('Hash')
+            IPFS.objects.filter().update(hash_ipfs=response.json().get('Hash'))
     form = IPFSTransForm()
     return render(request, 'blog/ipfs_trans.html', context={'index': index, 'form': form, 'data_url': data_url})
 
@@ -112,6 +105,15 @@ class CreateUserWalletAddress(APIView):
 class Data(APIView):
     def post(self, request, *args, **kwargs):
         serializer = DataSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+
+
+class IPFSData(APIView):
+    def post(self, request, *args, **kwargs):
+        serializer = IPFSDataSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)

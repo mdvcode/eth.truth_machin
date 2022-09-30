@@ -12,5 +12,6 @@ urlpatterns = [
     path('update/hash/transaction/', views.UpdateHashTransaction.as_view()),
     path('create/user/wallet/address/', views.CreateUserWalletAddress.as_view()),
     path('create/data/', views.Data.as_view()),
+    path('create/ipfs/data/', views.IPFSData.as_view()),
 
 ]

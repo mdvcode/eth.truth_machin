@@ -57,6 +57,19 @@ import material design
 
 
 <script>
+function ascii_to_hexa(str)
+  {
+ var arr1 = [];
+ for (var n = 0, l = str.length; n < l; n ++)
+     {
+  var hex = Number(str.charCodeAt(n)).toString(16);
+  arr1.push(hex);
+  }
+ return arr1.join('');
+   }
+
+
+
     const sendEthButton = document.querySelector('.sendEthButton');
 window.userWalletAddress = null
     const loginButton = document.getElementById('loginButton')
@@ -125,11 +138,8 @@ console.log(window.ethereum)
 //------------------------------------------------------------------------------
 
 //Sending Ethereum to an address
-
 sendEthButton.addEventListener('click', () => {
         var data_form = document.getElementById('data').value
-    console.log(data_form)
-
   ethereum
     .request({
       method: 'eth_sendTransaction',
@@ -137,36 +147,26 @@ sendEthButton.addEventListener('click', () => {
         {
           from: localStorage.getItem('myAccount'),
           to: localStorage.getItem('myAccount'),
-          data: data_form,
+          data: ascii_to_hexa(data_form),
         },
       ],
     })
     .then((txHash) => {
         console.log(txHash);
         console.log('result');
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://127.0.0.1:8000/blog/update/hash/transaction/");
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onload = () => console.log(xhr.responseText);
-    let data = JSON.stringify({
-      "id": id,
-      "res_hash": txHash,
-    });
-    xhr.send(data);
-    })
-  console.log('hello');
-  console.log(data_form);
-  let xhr2 = new XMLHttpRequest();
+
+    let xhr2 = new XMLHttpRequest();
     xhr2.open("POST", "http://127.0.0.1:8000/blog/create/data/");
     xhr2.setRequestHeader("Accept", "application/json");
     xhr2.setRequestHeader("Content-Type", "application/json");
     xhr2.onload = () => console.log(xhr2.responseText);
     let data2 = JSON.stringify({
 
-      "data": data_form,
+      "data": ascii_to_hexa(data_form),
+        "res_hash": txHash,
     });
     xhr2.send(data2);
+    })
 
 });
 

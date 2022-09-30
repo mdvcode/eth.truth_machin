@@ -2,281 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3558b021-3c29-4ab9-84e0-d124aa00b8a9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/OwlCarousel2-2.2.1/ajax-loader.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/OwlCarousel2-2.2.1/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/OwlCarousel2-2.2.1/owl.carousel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/OwlCarousel2-2.2.1/owl.theme.default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/OwlCarousel2-2.2.1/owl.video.play.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/HELP-US-OUT.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/css/font-awesome.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/animated.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/bordered-pulled.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/core.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/fixed-width.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/font-awesome.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/icons.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/larger.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/list.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/mixins.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/path.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/rotated-flipped.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/screen-reader.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/stacked.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/less/variables.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_animated.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_bordered-pulled.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_core.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_fixed-width.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_icons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_larger.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_list.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_path.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_rotated-flipped.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_stacked.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/font-awesome-4.7.0/scss/font-awesome.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/parallax-js-master/parallax.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/progressbar/progressbar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/video-js/Youtube.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/video-js/video-js.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/plugins/video-js/video.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/sign_in.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/signup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/blog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/blog_responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/blog_single.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/blog_single_responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/bootstrap4/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/contact.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/contact_responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/course.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/course_responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/courses.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/courses_responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/instructors.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/instructors_responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/main_styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/regular.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/regular_responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/css/styles/responsive.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/blog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/blog_single.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/contact.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/course.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/courses.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/easing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/instructors.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/jquery-3.2.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/owl.carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/popper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/js/regular.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/css/bootstrap/_media.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/css/bootstrap/mixins/_border-radius.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/css/bootstrap/mixins/_clearfix.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/css/bootstrap/mixins/_screen-reader.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/css/bootstrap/mixins/_size.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/css/bootstrap/mixins/_visibility.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/css/bootstrap/utilities/_stretched-link.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/js/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/js/popper.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_badge.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_breadcrumb.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_button-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_card.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_carousel.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_close.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_code.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_custom-forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_dropdown.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_functions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_images.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_input-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_jumbotron.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_media.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_mixins.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_modal.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_nav.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_navbar.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_popover.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_print.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_progress.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_reboot.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_root.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_spinners.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_tables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_toasts.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_tooltip.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_transitions.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_type.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_utilities.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/_variables.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/bootstrap-grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/bootstrap-reboot.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/bootstrap.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_alert.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_background-variant.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_badge.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_border-radius.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_box-shadow.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_breakpoints.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_buttons.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_caret.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_clearfix.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_deprecate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_float.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_forms.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_gradients.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_grid-framework.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_grid.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_hover.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_image.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_list-group.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_lists.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_nav-divider.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_pagination.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_reset-text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_resize.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_screen-reader.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_size.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_table-row.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_text-emphasis.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_text-hide.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_text-truncate.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_transition.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/mixins/_visibility.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_align.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_background.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_borders.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_clearfix.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_display.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_embed.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_flex.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_float.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_overflow.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_position.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_screenreaders.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_shadows.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_sizing.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_spacing.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_stretched-link.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_text.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/utilities/_visibility.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/bootstrap/vendor/_rfs.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/multiple/scss/style.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/Chinese.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/English.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/French.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/German.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/Italian.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/Japanese.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/Lithuanian.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/Swedish.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/Ukrainian.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_author.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/blog_post_image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/cert.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/course_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/course_10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/course_11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/course_12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/course_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/course_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/course_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/course_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/course_6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/course_7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/course_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/course_9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/event_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/event_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/event_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/index_background.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructor_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructor_10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructor_11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructor_12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructor_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructor_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructor_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructor_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructor_6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructor_7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructor_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructor_9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/instructors_background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/intro.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/intro_user.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/local_phone.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/local_post_office.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/marker.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/member_0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/member_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/member_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/member_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/member_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/member_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/member_6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/member_7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/member_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/member_9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/place.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/play_big.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/review_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/schedule.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/template/images/video.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/shutterstock_1318372334.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/eth.truth_machine.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/eth.truth_machine.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.42.12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.42.12_9NeURZ5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.42.12_ZYNc65Q.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.43.57.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.43.57_QJRPuSq.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.44.05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.44.05_DtWSMJI.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.44.05_VMDb9Xk.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.44.05_XZyxtbA.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.44.05_iWHgGlB.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.44.15.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/static/css/style.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/create_text_trans.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/create_text_trans.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/ipfs_trans.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/ipfs_trans.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/templates/blog/update_texttrans.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/update_texttrans.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/w3/templates/w3/create_trans.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/w3/templates/w3/result_ipfs_hash.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/w3/templates/w3/update_trans.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/w3/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/w3/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -382,7 +125,7 @@
       <workItem from="1664376651566" duration="30000" />
       <workItem from="1664376692969" duration="33000" />
       <workItem from="1664376739798" duration="56000" />
-      <workItem from="1664376875744" duration="7329000" />
+      <workItem from="1664376875744" duration="14982000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1663608191498</created>
@@ -405,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1663948739189</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1664456174242</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1664456174242</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
