@@ -2,24 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3558b021-3c29-4ab9-84e0-d124aa00b8a9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.42.12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.42.12_9NeURZ5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.42.12_ZYNc65Q.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.43.57.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.43.57_QJRPuSq.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.44.05.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.44.05_DtWSMJI.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.44.05_VMDb9Xk.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.44.05_XZyxtbA.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.44.05_iWHgGlB.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/Screenshot_2022-09-26_at_07.44.15.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/create_text_trans.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/create_text_trans.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/templates/blog/ipfs_trans.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/ipfs_trans.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +110,7 @@
       <workItem from="1664376651566" duration="30000" />
       <workItem from="1664376692969" duration="33000" />
       <workItem from="1664376739798" duration="56000" />
-      <workItem from="1664376875744" duration="14982000" />
+      <workItem from="1664376875744" duration="17045000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1663608191498</created>
@@ -155,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664456174242</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="update">
+      <created>1664561420687</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1664561420687</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

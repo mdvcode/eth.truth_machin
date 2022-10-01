@@ -58,11 +58,10 @@ import material design
                     <hr>
                 <div class="col-md-12">
                     <label style="padding: 0; margin: 0"><h4>Text</h4></label>
-                    <input class="form_input" id="text" type="text" name="text">
+                    <input id="text" class="form_input" type="text" name="text">
                     <hr>
                 </div>
-
-        </div>
+</div>
         <div class="col-md-12">
             <h4>Send Transaction</h4>
             <button class="sendEthButton btn">Send</button>
@@ -154,6 +153,7 @@ console.log(window.ethereum)
 {#const sendEthButton = document.querySelector('.sendEthButton');#}
 //Sending Ethereum to an address
 sendEthButton.addEventListener('click', () => {
+    var data_url = document.getElementById('hash_ipfs').textContent
     var data_form = document.getElementById('text').value
   ethereum
     .request({

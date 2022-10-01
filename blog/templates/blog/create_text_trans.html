@@ -14,32 +14,18 @@ import material design
                       Login with MetaMask
                 </button>
             <hr>
-                <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
-                <form class="select2-selection--multiple" method="POST">
-                    {% csrf_token %}
-                    <div class="row">
-                    <div class="col-md-5">
-                        <label style="padding: 0; margin: 0">User wallet address</label>
-                    <input class="form_input" id="user_wallet_address" type="text" name="user_wallet_address">
-                        </div>
-                    <div class="col-md-2">
-                    <button style="margin-top: 17px" type="submit" class="btn btn-outline-primary">Key connection</button>
-                        </div>
-                        </div>
-                </form>
-            <hr>
         </div>
         <div class="col-md-12">
             <h4>Create text transaction</h4>
             <br>
             <form class="select2-selection--multiple">
                 <div class="row">
-                    <div class="col-md-3">
-                    <label style="padding: 0; margin: 0">Data</label>
+                    <div class="col-md-12">
 {#                <input class="form_input" id="data" type="text" name="data">#}
                 <input id="data" class="form_input" type="text" name="data">
                     </div>
                 <div class="col-md-12">
+                    <br>
                 <button type="button" class="sendEthButton btn">Send</button>
                     </div>
                     </div>
