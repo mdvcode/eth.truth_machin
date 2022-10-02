@@ -43,7 +43,7 @@ import material design
                       Login with MetaMask
                 </button>
             <hr>
-                <p id='userWallet' class='text-lg text-gray-600 my-2'></p>
+            </div>
                 <form class="select2-selection--multiple" method="POST">
                     {% csrf_token %}
             <form method="post" enctype="multipart/form-data">
@@ -55,13 +55,14 @@ import material design
                 </div>
                 <button type="submit" class="btn btn-outline-primary">Create</button>
             </form>
+
                     <hr>
                 <div class="col-md-12">
                     <label style="padding: 0; margin: 0"><h4>Text</h4></label>
                     <input id="text" class="form_input" type="text" name="text">
                     <hr>
                 </div>
-</div>
+
         <div class="col-md-12">
             <h4>Send Transaction</h4>
             <button class="sendEthButton btn">Send</button>
@@ -153,7 +154,6 @@ console.log(window.ethereum)
 {#const sendEthButton = document.querySelector('.sendEthButton');#}
 //Sending Ethereum to an address
 sendEthButton.addEventListener('click', () => {
-    var data_url = document.getElementById('hash_ipfs').textContent
     var data_form = document.getElementById('text').value
   ethereum
     .request({

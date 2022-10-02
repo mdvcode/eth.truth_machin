@@ -6,8 +6,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from web3 import Web3, HTTPProvider
 
-from .forms import CreateTextTransForm, UpdateTextTransactionForm, ConnectWallet, IPFSTransForm
-from .models import IndexInfo, Transaction, MetamaskAccount, IPFS
+from .forms import UpdateTextTransactionForm, IPFSTransForm
+from .models import IndexInfo, Transaction, IPFS
 from .serializers import WalletSerializer, DataSerializer, IPFSDataSerializer
 
 
@@ -27,23 +27,6 @@ def hex_to_ascii(hex_str):
 
 def create_text_trans(request):
     index = IndexInfo.objects.all()[0]
-    # transactions = Transaction.objects.get(id=id)
-    # s = transactions.data.encode('utf-8')
-    # data = str(s.hex())
-    # if request.method == "POST":
-    #     print(request.POST)
-    #     if 'user_wallet_address' in request.POST:
-    #         form = ConnectWallet(data=request.POST)
-    #         if form.is_valid():
-    #             inst = form.save(commit=False)
-    #             inst.save()
-    # if request.method == "POST":
-    #     form = CreateTextTransForm(request.POST)
-    #     if form.is_valid():
-    #         inst = form.save(commit=False)
-    #         inst.save()
-    #         return redirect('blog:update_texttrans', id_transaction=inst.id)
-    # form = CreateTextTransForm()
     return render(request, 'blog/create_text_trans.html', context={'index': index})
 
 
@@ -67,21 +50,6 @@ def ipfs_trans(request):
     return render(request, 'blog/ipfs_trans.html', context={'index': index, 'form': form, 'data_url': data_url})
 
 
-def update_texttrans(request, id_transaction):
-    index = IndexInfo.objects.all()[0]
-    transactions = Transaction.objects.get(id=id_transaction)
-    if request.method == 'POST':
-        form = UpdateTextTransactionForm(instance=transactions, data=request.POST or None)
-        if form.is_valid():
-            form.save()
-            return redirect('blog:update_texttrans', id_transaction=id_transaction)
-    form = UpdateTextTransactionForm(instance=transactions)
-    s = transactions.data.encode('utf-8')
-    data = str(s.hex())
-    return render(request, 'blog/update_texttrans.html', context={'form': form, 'data': data, 'index': index,
-                                                                  'id_transaction': id_transaction})
-
-
 class UpdateHashTransaction(APIView):
     def post(self, request, *args, **kwargs):
         transaction = Transaction.objects.get(id=request.data.get('id'))
@@ -95,8 +63,6 @@ class CreateUserWalletAddress(APIView):
     def post(self, request, *args, **kwargs):
         serializer = WalletSerializer(data=request.data)
         if serializer.is_valid():
-            # wallet_address = MetamaskAccount.objects.get(user_wallet_address=request.data.get('user_wallet_address'))
-            # if wallet_address == 0:
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)

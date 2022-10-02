@@ -26,7 +26,7 @@ class Transaction(models.Model):
 
 class IPFS(models.Model):
     objects = None
-    file = models.FileField(null=True, blank=True)
+    file = models.FileField(null=True, blank=True, default=None)
     result_hash = models.CharField(max_length=250, null=True, blank=True)
     account = models.ForeignKey(MetamaskAccount, null=True, blank=True, on_delete=models.CASCADE)
     text = models.CharField(max_length=250, null=True, blank=True)
