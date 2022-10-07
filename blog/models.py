@@ -29,7 +29,7 @@ class IPFS(models.Model):
     file = models.FileField(null=True, blank=True, default=None)
     result_hash = models.CharField(max_length=250, null=True, blank=True)
     account = models.ForeignKey(MetamaskAccount, null=True, blank=True, on_delete=models.CASCADE)
-    text = models.CharField(max_length=250, null=True, blank=True)
+    text = models.CharField(max_length=5000, null=True, blank=True)
     hash_ipfs = models.CharField(max_length=250, null=True, blank=True)
 
 

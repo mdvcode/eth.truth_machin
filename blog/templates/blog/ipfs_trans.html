@@ -44,30 +44,32 @@ import material design
                 </button>
             <hr>
             </div>
-                <form class="select2-selection--multiple" method="POST">
-                    {% csrf_token %}
             <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <div class="col-lg-12 contact_col">
-                    <label style="color: #2B333F"><h4>Photo</h4></label>
-                    {{form.file|add_class:'form_input '}}
-                    <br>
-                </div>
-                <button type="submit" class="btn btn-outline-primary">Create</button>
+                    {% csrf_token %}
+                    <div class="col-lg-12 contact_col">
+                        <label style="color: #2B333F"><h4>Photo</h4></label>
+                        {{form.file|add_class:'form_input '}}
+                        <br>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">Create</button>
+                <hr>
             </form>
+                    <div class="col-lg-12 contact_col">
+                        <label style="color: #2B333F"><h4>IPFS</h4></label>
+                        <h3 id="hash_ipfs">{{ data_url }}</h3>
+                        <hr>
+                    </div>
 
-                    <hr>
                 <div class="col-md-12">
                     <label style="padding: 0; margin: 0"><h4>Text</h4></label>
                     <input id="text" class="form_input" type="text" name="text">
                     <hr>
                 </div>
-
+ </div>
+    </div>
         <div class="col-md-12">
             <h4>Send Transaction</h4>
             <button class="sendEthButton btn">Send</button>
-        </div>
-    </div>
     </div>
 
 <script>
@@ -154,6 +156,8 @@ console.log(window.ethereum)
 {#const sendEthButton = document.querySelector('.sendEthButton');#}
 //Sending Ethereum to an address
 sendEthButton.addEventListener('click', () => {
+    var data_url = document.getElementById('hash_ipfs').textContent
+    console.log('start click')
     var data_form = document.getElementById('text').value
   ethereum
     .request({
@@ -162,7 +166,7 @@ sendEthButton.addEventListener('click', () => {
         {
           from: localStorage.getItem('myAccount'),
           to: localStorage.getItem('myAccount'),
-          data: ascii_to_hexa(data_form),
+          data: ascii_to_hexa(data_form + " " + data_url),
         },
       ],
     })
@@ -176,12 +180,14 @@ sendEthButton.addEventListener('click', () => {
     xhr2.onload = () => console.log(xhr2.responseText);
     let data2 = JSON.stringify({
 
-      "data": ascii_to_hexa(data_form),
-        "res_hash": txHash,
+      "text": data_form,
+        "result_hash": txHash,
     });
     xhr2.send(data2);
     })
+    console.log('result')
 });
+
 
 ethereumButton.addEventListener('click', () => {
   getAccount();

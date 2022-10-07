@@ -41,6 +41,7 @@ def ipfs_trans(request):
             files = {
                 'file': bytes(inst.file.read())
             }
+            print(files)
             response = requests.post('https://ipfs.infura.io:5001/api/v0/add', files=files,
                                      auth=('29QAqPI0HxrbfPWaTYotMnpdyho', 'a1d30f9c414e15aa990a140ac924f33b'))
             print(response)
