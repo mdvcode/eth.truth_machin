@@ -1,12 +1,12 @@
 import binascii
 import requests
 from django.contrib.sites.models import Site
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from web3 import Web3, HTTPProvider
 
-from .forms import UpdateTextTransactionForm, IPFSTransForm
+from .forms import IPFSTransForm
 from .models import IndexInfo, Transaction, IPFS
 from .serializers import WalletSerializer, DataSerializer, IPFSDataSerializer
 
