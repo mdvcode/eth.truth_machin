@@ -151,13 +151,9 @@ console.log(window.ethereum)
     });
 
 
-
-{#var data_url = {{ data_url }}#}
-{#const sendEthButton = document.querySelector('.sendEthButton');#}
 //Sending Ethereum to an address
 sendEthButton.addEventListener('click', () => {
     var data_url = document.getElementById('hash_ipfs').textContent
-    console.log('start click')
     var data_form = document.getElementById('text').value
   ethereum
     .request({
@@ -185,7 +181,6 @@ sendEthButton.addEventListener('click', () => {
     });
     xhr2.send(data2);
     })
-    console.log('result')
 });
 
 
