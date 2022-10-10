@@ -49,7 +49,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'w3',
     'widget_tweaks',
     'rest_framework',
     'rest_framework.authtoken',
