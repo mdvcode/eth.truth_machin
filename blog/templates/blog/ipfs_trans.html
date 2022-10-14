@@ -178,6 +178,7 @@ sendEthButton.addEventListener('click', () => {
 
       "text": data_form,
         "result_hash": txHash,
+        "account": String(localStorage.getItem('myAccount')),
     });
     xhr2.send(data2);
     })

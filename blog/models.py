@@ -18,7 +18,7 @@ class MetamaskAccount(models.Model):
 
 class Transaction(models.Model):
     objects = None
-    account = models.ForeignKey(MetamaskAccount, null=True, blank=True, on_delete=models.CASCADE)
+    account = models.CharField(max_length=250, null=True, blank=True)
     res_hash = models.CharField(max_length=250, null=True, blank=True)
     data = models.CharField(max_length=5000, null=True, blank=True)
     text = models.CharField(max_length=250, null=True, blank=True)
@@ -28,7 +28,7 @@ class IPFS(models.Model):
     objects = None
     file = models.FileField(null=True, blank=True, default=None)
     result_hash = models.CharField(max_length=250, null=True, blank=True)
-    account = models.ForeignKey(MetamaskAccount, null=True, blank=True, on_delete=models.CASCADE)
+    account = models.CharField(max_length=250, null=True, blank=True)
     text = models.CharField(max_length=5000, null=True, blank=True)
     hash_ipfs = models.CharField(max_length=250, null=True, blank=True)
 

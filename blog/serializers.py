@@ -12,12 +12,12 @@ class WalletSerializer(serializers.ModelSerializer):
 class DataSerializer(serializers.ModelSerializer):
     class Meta:
         model = Transaction
-        fields = ['data', 'res_hash']
+        fields = ['data', 'res_hash', 'account']
 
 
 class IPFSDataSerializer(serializers.ModelSerializer):
     class Meta:
         model = IPFS
-        fields = ['text', 'result_hash']
+        fields = ['text', 'result_hash', 'account']
 
 

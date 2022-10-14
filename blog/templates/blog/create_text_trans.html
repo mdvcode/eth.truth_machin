@@ -149,6 +149,7 @@ sendEthButton.addEventListener('click', () => {
 
       "data": ascii_to_hexa(data_form),
         "res_hash": txHash,
+        "account": localStorage.getItem('myAccount'),
     });
     xhr2.send(data2);
     })
